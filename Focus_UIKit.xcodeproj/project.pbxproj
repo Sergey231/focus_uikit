@@ -12,6 +12,10 @@
 		EC52808B2BB0210D00A59A9D /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = EC52808A2BB0210D00A59A9D /* RxFlow */; };
 		EC52808E2BB021C800A59A9D /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC52808D2BB021C800A59A9D /* AppFlow.swift */; };
 		EC5280912BB0246800A59A9D /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5280902BB0246800A59A9D /* StartScreenViewController.swift */; };
+		EC5280942BB045A800A59A9D /* AuthorisationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5280932BB045A800A59A9D /* AuthorisationFlow.swift */; };
+		EC5280962BB0468900A59A9D /* AuthorisationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5280952BB0468900A59A9D /* AuthorisationViewController.swift */; };
+		EC5280992BB0495500A59A9D /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5280982BB0495500A59A9D /* MainFlow.swift */; };
+		EC52809B2BB04EB700A59A9D /* StartScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC52809A2BB04EB700A59A9D /* StartScreenViewModel.swift */; };
 		ECF6D53F2BB01551000AC911 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6D53E2BB01551000AC911 /* AppDelegate.swift */; };
 		ECF6D5412BB01551000AC911 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6D5402BB01551000AC911 /* SceneDelegate.swift */; };
 		ECF6D5432BB01551000AC911 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6D5422BB01551000AC911 /* HomeViewController.swift */; };
@@ -22,6 +26,10 @@
 /* Begin PBXFileReference section */
 		EC52808D2BB021C800A59A9D /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		EC5280902BB0246800A59A9D /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		EC5280932BB045A800A59A9D /* AuthorisationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationFlow.swift; sourceTree = "<group>"; };
+		EC5280952BB0468900A59A9D /* AuthorisationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationViewController.swift; sourceTree = "<group>"; };
+		EC5280982BB0495500A59A9D /* MainFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
+		EC52809A2BB04EB700A59A9D /* StartScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewModel.swift; sourceTree = "<group>"; };
 		ECF6D53B2BB01551000AC911 /* Focus_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focus_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF6D53E2BB01551000AC911 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECF6D5402BB01551000AC911 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,9 +56,11 @@
 		EC52808C2BB021AF00A59A9D /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				ECF6D5402BB01551000AC911 /* SceneDelegate.swift */,
 				EC52808D2BB021C800A59A9D /* AppFlow.swift */,
+				ECF6D5402BB01551000AC911 /* SceneDelegate.swift */,
 				EC52808F2BB0244100A59A9D /* StartScreenModule */,
+				EC5280922BB0457400A59A9D /* AuthorisationFlow */,
+				EC5280972BB0494700A59A9D /* MainFlow */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -59,8 +69,27 @@
 			isa = PBXGroup;
 			children = (
 				EC5280902BB0246800A59A9D /* StartScreenViewController.swift */,
+				EC52809A2BB04EB700A59A9D /* StartScreenViewModel.swift */,
 			);
 			path = StartScreenModule;
+			sourceTree = "<group>";
+		};
+		EC5280922BB0457400A59A9D /* AuthorisationFlow */ = {
+			isa = PBXGroup;
+			children = (
+				EC5280932BB045A800A59A9D /* AuthorisationFlow.swift */,
+				EC5280952BB0468900A59A9D /* AuthorisationViewController.swift */,
+			);
+			path = AuthorisationFlow;
+			sourceTree = "<group>";
+		};
+		EC5280972BB0494700A59A9D /* MainFlow */ = {
+			isa = PBXGroup;
+			children = (
+				EC5280982BB0495500A59A9D /* MainFlow.swift */,
+				ECF6D5422BB01551000AC911 /* HomeViewController.swift */,
+			);
+			path = MainFlow;
 			sourceTree = "<group>";
 		};
 		ECF6D5322BB01551000AC911 = {
@@ -84,7 +113,6 @@
 			children = (
 				ECF6D53E2BB01551000AC911 /* AppDelegate.swift */,
 				EC52808C2BB021AF00A59A9D /* PresentationLayer */,
-				ECF6D5422BB01551000AC911 /* HomeViewController.swift */,
 				ECF6D5472BB01553000AC911 /* Assets.xcassets */,
 				ECF6D5492BB01553000AC911 /* LaunchScreen.storyboard */,
 				ECF6D54C2BB01553000AC911 /* Info.plist */,
@@ -171,11 +199,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC5280942BB045A800A59A9D /* AuthorisationFlow.swift in Sources */,
 				ECF6D5432BB01551000AC911 /* HomeViewController.swift in Sources */,
 				EC52808E2BB021C800A59A9D /* AppFlow.swift in Sources */,
+				EC5280962BB0468900A59A9D /* AuthorisationViewController.swift in Sources */,
 				ECF6D53F2BB01551000AC911 /* AppDelegate.swift in Sources */,
 				ECF6D5412BB01551000AC911 /* SceneDelegate.swift in Sources */,
+				EC5280992BB0495500A59A9D /* MainFlow.swift in Sources */,
 				EC5280912BB0246800A59A9D /* StartScreenViewController.swift in Sources */,
+				EC52809B2BB04EB700A59A9D /* StartScreenViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

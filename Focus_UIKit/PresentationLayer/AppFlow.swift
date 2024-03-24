@@ -17,6 +17,9 @@ enum AppStep: Step {
 
 final class AppFlow: Flow, Stepper {
     
+    let steps = PublishRelay<Step>()
+    let initialStep: Step = AppStep.startingScreen
+
     public static let shared = AppFlow()
     
     private let rootViewController: UINavigationController
@@ -30,9 +33,6 @@ final class AppFlow: Flow, Stepper {
     var root: Presentable {
         rootViewController
     }
-    
-    let steps = PublishRelay<Step>()
-    let initialStep: Step = AppStep.startingScreen
     
     func navigate(to step: RxFlow.Step) -> RxFlow.FlowContributors {
         guard let step = step as? AppStep else { return .none }
@@ -59,12 +59,10 @@ final class AppFlow: Flow, Stepper {
     }
     
     private func navigateToAuthoricationFlow() -> FlowContributors {
-        
-        return .none
+        .one(flowContributor: .contribute(withNext: AuthorisationFlow(rootViewController: rootViewController)))
     }
     
     private func navigateToMainFlow() -> FlowContributors {
-        
-        return .none
+        .one(flowContributor: .contribute(withNext: MainFlow(rootViewController: rootViewController)))
     }
 }

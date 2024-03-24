@@ -22,9 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowSence)
         guard let window = self.window else { return }
         
-        let appFlow = AppFlow.shared
-        
-        let root = AppFlow.shared
         Flows.use(AppFlow.shared, when: .created) { root in
             window.rootViewController = root
             window.makeKeyAndVisible()

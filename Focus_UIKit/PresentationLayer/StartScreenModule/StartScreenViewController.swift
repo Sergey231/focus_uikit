@@ -7,8 +7,13 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class StartScreenViewController: UIViewController {
+    
+    private let viewModel = ViewModel()
+    private let disposeBag = DisposeBag()
     
     private lazy var label: UILabel = {
         let label = UILabel()
@@ -29,8 +34,9 @@ final class StartScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .red
         createUI()
+        configure()
     }
     
     // MARK: Create UI
@@ -47,5 +53,22 @@ final class StartScreenViewController: UIViewController {
             $0.top.equalTo(label.snp.bottom).offset(16)
             $0.centerX.equalToSuperview()
         }
+    }
+    
+    // MARK: Configure
+    
+    private func configure() {
+        
+        let output = viewModel.configure()
+        
+        output.isLogined
+            .drive(onNext: { isLogined in
+                if isLogined {
+                    AppFlow.shared.steps.accept(AppStep.homeFlow)
+                } else {
+                    AppFlow.shared.steps.accept(AppStep.authorizationFlow)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
