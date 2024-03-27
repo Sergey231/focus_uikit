@@ -52,6 +52,6 @@ final class AuthorisationFlow: Flow, Stepper {
     }
     
     private func navigateToMainFlow() -> FlowContributors {
-        .one(flowContributor: .contribute(withNext: MainFlow(rootViewController: rootViewController)))
+        .end(forwardToParentFlowWithStep: AppStep.homeFlow)
     }
 }
