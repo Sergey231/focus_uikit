@@ -29,6 +29,15 @@ final class AuthorisationViewController: UIViewController {
         return label
     }()
     
+    private lazy var loginButton: UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.title = "Login"
+        config.buttonSize = .large
+        config.cornerStyle = .large
+        let button = UIButton(configuration: config)
+        return button
+    }()
+    
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -41,6 +50,7 @@ final class AuthorisationViewController: UIViewController {
        
         view.addSubview(label)
         view.addSubview(emojiLabel)
+        view.addSubview(loginButton)
         
         label.snp.makeConstraints {
             $0.center.equalToSuperview()
@@ -49,6 +59,11 @@ final class AuthorisationViewController: UIViewController {
         emojiLabel.snp.makeConstraints {
             $0.top.equalTo(label.snp.bottom).offset(16)
             $0.centerX.equalToSuperview()
+        }
+        
+        loginButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(32)
         }
     }
 }
