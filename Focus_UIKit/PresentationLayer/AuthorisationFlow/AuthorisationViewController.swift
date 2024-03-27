@@ -44,6 +44,7 @@ final class AuthorisationViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         createUI()
+        configure()
     }
     
     private func createUI() {
@@ -66,4 +67,18 @@ final class AuthorisationViewController: UIViewController {
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(32)
         }
     }
+    
+    private func configure() {
+        
+//        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        
+        loginButton.rx.tap
+            .debug("🛠️")
+            .subscribe()
+            .disposed(by: disposeBag)
+    }
+    
+//    @objc private func loginButtonTapped() {
+//        print("🛠️ loginButtonTapped")
+//    }
 }
