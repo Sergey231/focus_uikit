@@ -52,6 +52,7 @@ final class AuthorisationFlow: Flow, Stepper {
     }
     
     private func navigateToMainFlow() -> FlowContributors {
-        .end(forwardToParentFlowWithStep: AppStep.homeFlow)
+        print("🔴 navigateToMainFlow()")
+        return .end(forwardToParentFlowWithStep: AppStep.homeFlow)
     }
 }
