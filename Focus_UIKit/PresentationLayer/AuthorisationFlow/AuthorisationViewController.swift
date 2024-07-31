@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
+import SwiftUI
 
 final class AuthorisationViewController: UIViewController {
     
@@ -82,3 +83,10 @@ final class AuthorisationViewController: UIViewController {
 //        print("🛠️ loginButtonTapped")
 //    }
 }
+
+#if DEBUG
+@available(iOS 17.0, *)
+#Preview {
+    AuthorisationViewController()
+}
+#endif

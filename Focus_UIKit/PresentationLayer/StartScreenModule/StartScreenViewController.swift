@@ -72,3 +72,10 @@ final class StartScreenViewController: UIViewController {
             .disposed(by: disposeBag)
     }
 }
+
+#if DEBUG
+@available(iOS 17.0, *)
+#Preview {
+    StartScreenViewController()
+}
+#endif
